@@ -27,7 +27,7 @@ Pero si queremos generar una lista ordenada, también podemos, por ejemplo, gene
 
 Si queremos, podemos añadir código al fichero markdown:
 
-```
+```python
 def main():
     print("Hello World")
     return
