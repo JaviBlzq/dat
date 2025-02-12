@@ -1,3 +1,7 @@
+---
+title: Introducci´on al formato Markdown
+---
+
 # Esto es un encabezado de nivel 1
 ## Esto es un encabezado de nivel 2
 Podemos generar encabezados de hasta nivel 6.
