@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Practica 1.05</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>Solicitar presupuesto seguro automóvil</h1>
+        <form action="./alta.html">
+            <fieldset>
+                <legend>
+                    Datos necesarios
+                </legend>
+
+                <label for="insurance_type">Tipo de seguro:</label>
+                <select name="insurance_type" id="insurance_type">
+                    <option value="car">Coche</option>
+                    <option value="bike">Moto</option>
+                    <option value="truck">Camión</option>
+                </select>
+                <br>
+                <p>¿Cuántos partes dio el año pasado?</p>
+                <input type="radio" name="claim" value="0" checked>Cero (0)<br>
+                <input type="radio" name="claim" value="1">Uno (1)<br>
+                <input type="radio" name="claim" value="2">Dos (2)<br>
+                <input type="radio" name="claim" value="more">&GreaterEqual;;3<br>
+
+                <br>
+
+                <input type="checkbox" name="insured_before" value="yes"> ¿Has estado asegurado antes con nosotros?
+                
+                <br>
+                
+                <label for="plate">Matrícula del automóvil:</label>
+                <input type="text" name="license_plate" id="plate">
+
+                <br>
+                
+                <label for="car_color">Color del automóvil:</label>
+                <input type="color" name="car_color" id="car_color">
+
+                <br>
+                
+                <label for="intro">Breve introducción</label>
+                <textarea name="intro" rows="30" cols="50">
+                    Escriba aquí su mensaje
+                </textarea>
+
+                <br>
+                
+                <label for="price_range">El precio será entre 0 hasta 1500&nbsp;€. ¿Cuánto espera pagar?</label>
+                <input type="number" name="price_range" id="price_range" min="0" max="1500">
+            </fieldset>
+
+            <input type="submit" value="Solicitar">
+        </form>
+    </body>
+</html>
