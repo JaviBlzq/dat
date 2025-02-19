@@ -1,4 +1,4 @@
-#CSS Selectors
+# CSS Selectors
 
 ## Resumen
 
@@ -55,9 +55,12 @@ p * a { ... }
 
 El primero: El em dentro de un span dentro de un anchor dentro de un parrafo.
 
+
 El segundo: Todos los elementos que sean parrafo, anchor, span o em.
 
+
 El tercero: Todos los anchor dentro de un parrafo.
+
 
 El cuarto: Todos los elementos anchor que sean descendientes de cualquier cosa dentro de un parrafo
 ### Selector de clase
@@ -75,8 +78,14 @@ p, .aviso ->
 ```
 
 El primero: Afecta Elemento parrafo **Y** clase aviso.
+
+
 El segundo: Afecta a los elementos de clase aviso que estén dentro de un parrafo.
+
+
 El tercero: Afecta a todos los elementos parrafos **O** clase aviso. Es un _OR_ no un _XOR_.
+
+
 El cuarto: Afecta a clases aviso, es igual que `.aviso`.
 
 ### Selector de identidad
@@ -89,8 +98,14 @@ p, #aviso { ... }
 *#aviso { ... }
 ```
 El primero: Cualquier párrafo **Y** el elemento con id aviso.
+
+
 El segundo: Afecta al elemento con id aviso que está dentro de un parrafo.
+
+
 El tercero: Afecta a todos los elementos parrafos **O** elemento id aviso.
+
+
 El cuarto: Cualquier elemento con id aviso. Redundante, es igual que `#aviso`.
 
 ## Ejemplos
@@ -103,7 +118,9 @@ ul#menuPrincipal li.destacado a#inicio { ... }
 
 El primero: Afecta a cualquier elemento de clase especial que sea hijo de un elemento de clase aviso.
 
+
 El segundo: Afecta a los elementos span **Y** elementos clase especial que sean hijos de los elementos div de clase aviso, es decir, _afecta a los elementos span de clase especial que estén dentro de un div de clase aviso_.
+
 
 El tercero: Un elemento anchor de id inicio que esté dentro de un elemento li de clase destacado que esté dentro de un lista desordenada (ul) de id menuPrincipal.
 
