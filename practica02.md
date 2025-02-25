@@ -472,12 +472,24 @@ Con estas reglas, el resultado queda así:
 
 ## Práctica 2.2 - Uso de Selectores
 
-Para el primer ejemplo, se tienen dos párrafos con el mismo texto, pero uno de ellos en un elemento párrafo de clase _parrafo_ y otro un elemento párrafo dentro de un elemento _div_.
+Para el primer ejemplo, se tienen dos párrafos con el mismo
+texto, pero uno de ellos en un elemento párrafo de clase
+*parrafo* y otro un elemento párrafo dentro de un elemento *div*.
 
-El estilo: `p.parrafo { color: green; }` solo aplica a los elementos párrafo de clase _parrafo_. Por tanto, solo aplica a uno de ellos, pese a ser el otro un elemento párrafo descendiente de una clase párrafo. Las clases no se heredan al tener descendientes, lo que sí se hereda son los estilos que afectan a los progenitores.
+El estilo: `p.parrafo { color: green; }` solo aplica a los
+elementos párrafo de clase *parrafo*. Por tanto, solo aplica a
+uno de ellos, pese a ser el otro un elemento párrafo descendiente
+de una clase párrafo. Las clases no se heredan al tener
+descendientes, lo que sí se hereda son los estilos que afectan a
+los progenitores.
 
+Para el segundo ejemplo vemos la diferencia a la hora de estilar
+clases e id. Pese a tener nombres de clase e identificador
+iguales, si queremos que la regla solo aplique al elemento
+identificado, NO aplica a la clase.
 
-Para el segundo ejemplo vemos la diferencia a la hora de estilar clases e id. Pese a tener nombres de clase e identificador iguales, si queremos que la regla solo aplique al elemento identificado, NO aplica a la clase.
-
-Para el tercer ejemplo, vemos la diferencia entre querer aplicar un estilo a una clase dentro de otra clase, pero no a otro elemento que pertenece a ambas clases. La regla solo aplica a las clases _uno_ dentro de la clase _titulo_ y no a las clases _titulo_ ni _uno_ ni a los elementos que las compartan.
-
+Para el tercer ejemplo, vemos la diferencia entre querer aplicar
+un estilo a una clase dentro de otra clase, pero no a otro
+elemento que pertenece a ambas clases. La regla solo aplica a las
+clases *uno* dentro de la clase *titulo* y no a las clases
+*titulo* ni *uno* ni a los elementos que las compartan.
