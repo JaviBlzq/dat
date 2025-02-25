@@ -301,3 +301,97 @@ Por tanto, el texto _Párrafo 2, llamado alfa. Está dentro de un elemento div, 
 La página queda de la siguiente manera:
 
 ![Ejemplo 3 Practica 2](images/practica02/Ejemplo3CSS.png)
+
+### Ejemplo 4
+
+Tenemos este código:
+
+```html
+<!DOCTYPE html>
+<html lang="es-ES">
+
+<head>
+  <meta charset="utf-8">
+  <title> ej005 selectores4 </title>
+  <style>
+    .urjc {
+      color: #CB0017;
+    }
+
+    .urjc.reglamento {
+      text-decoration: underline;
+    }
+
+    .urjc, .reglamento {
+      background-color: lightblue;
+    }
+  </style>
+</head>
+
+<body>
+  <p>Párrafo 1.</p>
+  <p class="reglamento urjc">Párrafo 2, clases reglamento y urjc.</p>
+  <p class="reglamento ucm">Párrafo 2, clases reglamento y ucm.</p>
+  <p class="matriculacion">Párrafo 3, clase matriculación.</p>
+  <p class="investigacion urjc">Párrafo 4, clases investigacion y urjc.</p>
+  <p class="investigacion uc3m">Párrafo 4, clases investigacion y uc3m.</p>
+</body>
+
+</html>
+
+```
+
+Analizaremos uno a uno todos los estilos para ver como aplican.
+
+Antes de esto, hay que recordar que a la hora de definir clases en html, si separamos por espacio, estamos definiendo varios valores de clase para un mismo elemento. Por ejemplo, en este elemento:
+
+```html
+<p class="reglamento urjc">Párrafo 2, clases reglamento y urjc.</p>
+```
+
+Este elemento pertenece a la clase _reglamento_ y a la clase _urjc_.
+
+Con esto claro, vamos con el primer estilo.
+
+```css
+.urjc {
+      color: #CB0017;
+    }
+```
+
+Todas las clases urjc tendrán este color. ESto afecta a los parrafos con los siguientes textos:
+- _Párrafo 2, clases reglamento y urjc._
+
+- _Párrafo 4, clases investigacion y urjc._
+
+El siguiente estilo:
+
+```css
+.urjc.reglamento {
+      text-decoration: underline;
+    }
+```
+
+Afectará a todos los elementos que sean de clase _urjc_ y clase _reglamento_. Su texto estará subrayado, y solo aplica al siguiente elemento: _Párrafo 2, clases reglamento y urjc._.
+
+El último estilo:
+
+```css
+.urjc, .reglamento {
+      background-color: lightblue;
+    }
+```
+
+Esta regla afectará a todos los elementos que pertenezcan a la clase _urjc_ **O** a la clase _reglamento_, cuyo fondo será de azul claro.
+
+Los elementos afectados son los que tienen el siguiente texto:
+
+- _Párrafo 2, clases reglamento y urjc._
+
+- _Párrafo 2, clases reglamento y ucm._
+
+- _Párrafo 4, clases investigacion y urjc._
+
+Con estas reglas, el resultado queda así:
+
+![Ejemplo 4 Practica 2](images/practica02/Ejemplo4CSS.png)
