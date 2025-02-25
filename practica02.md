@@ -207,3 +207,97 @@ Todas las clases _castilla-la-manha_ y sus descendientes estarán subrayados. Po
 Con todas estas reglas, al final queda este resultado:
 
 ![Ejemplo 2 Practica 2](images/practica02/Ejemplo2CSS.png)
+
+### Ejemplo 3
+
+Tenemos el siguiente código HTML:
+
+```html
+<!DOCTYPE html>
+<html lang="es-ES">
+
+<head>
+  <meta charset="utf-8">
+  <title> ej004 selectores 3 </title>
+  <style>
+    #alfa {
+      color: blue;
+    }
+
+    p#alfa {
+      font-size: 200%;
+    }
+
+    div#alfa{
+      background-color: yellow;
+    }
+
+    div #alfa{
+      font-style: italic;
+    }
+
+  </style>
+</head>
+
+<body>
+ <div>
+  <p>Párrafo 1.</p>
+  <p id="alfa">Párrafo 2, llamado alfa. Está dentro de un elemento div, pero no es un elemento div</p>
+  <p>Párrafo 3.</p>
+</div>
+
+  <p>Párrafo 4. No está dentro de elemento div.</p>
+
+</body>
+
+</html>
+
+```
+
+Vamos a ir repasando los estilos a ver dónde aplica cada uno. El primero de ellos:
+
+```css
+    #alfa {
+      color: blue;
+    }
+```
+
+Aplica a todos los elementos cuyo identificador sea _alfa_. Como es un identificador, este debe ser único, por tanto, solo debe afectar a un solo elemento.
+
+El parrafo con el identificador _alpha_, cuyo texto será azul, tiene de texto : _Párrafo 2, llamado alfa. Está dentro de un elemento div, pero no es un elemento div_.
+
+La siguiente regla de estilos:
+
+```css
+p#alfa {
+      font-size: 200%;
+    }
+```
+
+Esta regla afecta a todos los elementos parrafo que tengan como identificador _alfa_. Este estilo solo afecta al mismo elemento nombrado con anterioridad, cuyo texto _Párrafo 2, llamado alfa. Está dentro de un elemento div, pero no es un elemento div_ será un 200% más grande.
+
+El siguiente estilo:
+
+```css
+div#alfa{
+      background-color: yellow;
+    }
+```
+
+Esto afectará a los elementos _div_ que tengan como identificador _alfa_. No afecta a ningún elemento en nuestro código. Pese a sí tener un elemento div y un elemento con un identificador _alfa_ no le afecta, pues el elemento identificado como _alfa_ no es un _div_ sino un párrafo.
+
+El último estilo:
+
+```css
+div #alfa{
+      font-style: italic;
+    }
+```
+
+Afectará a todas los elementos _div_ o a todos los elementos con identificador _alfa_. Esta regla sí aplica al elemento identificado como _alfa_. Pues esta regla genera la posibilidad de que siendo _div_ **O** siendo _alfa_ aplique esta regla.
+
+Por tanto, el texto _Párrafo 2, llamado alfa. Está dentro de un elemento div, pero no es un elemento div_ estará en letra italica o cursiva.
+
+La página queda de la siguiente manera:
+
+![Ejemplo 3 Practica 2](images/practica02/Ejemplo3CSS.png)
