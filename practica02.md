@@ -1,7 +1,7 @@
-Javier Blázquez Ramírez
-jblzqzr
+Javier Blázquez Ramírez jblzqzr
 
 # Práctica 2
+
 ## Práctica 2.1 - Análisis de selectores
 
 ### Ejemplo 1
@@ -10,17 +10,34 @@ El primer ejemplo, tiene esta forma:
 
 ![Ejemplo 1 Practica 2](images/practica02/Ejemplo1CSS.png)
 Analizemos porque tiene esta pinta, analizando los estilos CSS.
-- El primer estilo que encontramos es `* {background-color: beige}`, lo que aplica el estilo a todo el documento, generando que el documento entero tenga como fondo el color _beige_.
 
-- El título _"Hola, css"_ es un elemento h1. A este elemento le aplican los estilos ` h1 { color: violet; text-align: center; font-size: large; }`. El selector hace que este este estilo afecte a **todos** los elementos que sean del tipo _h1_. En este caso, los _h1_ tendrán color violeta, estará alineado al centro y su tamaño de letra será grande.
+- El primer estilo que encontramos es
+  `* {background-color: beige}`, lo que aplica el estilo a todo
+  el documento, generando que el documento entero tenga como
+  fondo el color *beige*.
 
-- Ahora tenemos tres lineas, las cual podemos separar en tres tipos:
-    - Un parrafo, que no pertenece a ninguna clase ni tiene un identificador.
-    - Un parrafo de la clase _feo_.
-    - Un elemento div de clase _inverso_ con un parrafo dentro de él.
+- El título *"Hola, css"* es un elemento h1. A este elemento le
+  aplican los estilos
+  ` h1 { color: violet; text-align: center; font-size: large; }`.
+  El selector hace que este este estilo afecte a **todos** los
+  elementos que sean del tipo *h1*. En este caso, los *h1*
+  tendrán color violeta, estará alineado al centro y su tamaño de
+  letra será grande.
 
-Al primer párrafo, que no pertenece a ninguna clase y no tiene identificador, solo le afecta el estilo que afecta a los párrafos:
-```css
+- Ahora tenemos tres lineas, las cual podemos separar en tres
+  tipos:
+
+  - Un parrafo, que no pertenece a ninguna clase ni tiene un
+    identificador.
+  - Un parrafo de la clase *feo*.
+  - Un elemento div de clase *inverso* con un parrafo dentro de
+    él.
+
+Al primer párrafo, que no pertenece a ninguna clase y no tiene
+identificador, solo le afecta el estilo que afecta a los
+párrafos:
+
+``` css
 p {
       color: blue;
       text-align: left;
@@ -28,15 +45,24 @@ p {
     }
 ```
 
-Tendremos por tanto, un párrafo de color azul, con el texto alineado a la izquierda y y color de fondo amarillo.
+Tendremos por tanto, un párrafo de color azul, con el texto
+alineado a la izquierda y y color de fondo amarillo.
 
-Para el resto de párrafos también le afectará estos estilos, a no ser que haya estilos más restrictivos que afecten a estos.
+Para el resto de párrafos también le afectará estos estilos, a no
+ser que haya estilos más restrictivos que afecten a estos.
 
-Esto ocurre en los otros dos párrafos. En el párrafo con texto, _'Este parrafo tiene un formato terrible'_, le afectará los estilos vistos antes, pero también le afectan los estilos aplicados a su clase, que son más restrictivos que la regla general.
+Esto ocurre en los otros dos párrafos. En el párrafo con texto,
+*'Este parrafo tiene un formato terrible'*, le afectará los
+estilos vistos antes, pero también le afectan los estilos
+aplicados a su clase, que son más restrictivos que la regla
+general.
 
-Este párrafo, tendrá las reglas de la clase _feo_ pero además, los estilos de la regla general que no se superpongan, por ello, el párrafo tendrá el color rojo, con fondo rosa y alineado a la izquierda. Los estilos que le afectan son:
+Este párrafo, tendrá las reglas de la clase *feo* pero además,
+los estilos de la regla general que no se superpongan, por ello,
+el párrafo tendrá el color rojo, con fondo rosa y alineado a la
+izquierda. Los estilos que le afectan son:
 
-```css
+``` css
 p {
       color: blue;
       text-align: left;
@@ -50,7 +76,8 @@ p {
 ```
 
 Pero de ellos, lo que realmente aplica quedaría:
-```css
+
+``` css
 .feo {
       color: red;
       background-color: pink;
@@ -58,12 +85,20 @@ Pero de ellos, lo que realmente aplica quedaría:
       text-align: left;
     }
 ```
+
 Por ser algunos la superposición de otros.
 
-Para la última linea, que está dentro de un elemento _div_, ya no solo le afectarán los estilos de los párrafos, sino también los que estén pensados para estos elementos _div_. En este caso, no hay reglas que apliquen a los elementos _div_.
+Para la última linea, que está dentro de un elemento *div*, ya no
+solo le afectarán los estilos de los párrafos, sino también los
+que estén pensados para estos elementos *div*. En este caso, no
+hay reglas que apliquen a los elementos *div*.
 
-Para este caso, el estilo que afecta son los del párrafo y los estilos con regla para la clase _inverso_, pues este elemento es progenitor del elemento párrafo del texto. En este caso, los estilos que aplican son los siguientes:
-```css
+Para este caso, el estilo que afecta son los del párrafo y los
+estilos con regla para la clase *inverso*, pues este elemento es
+progenitor del elemento párrafo del texto. En este caso, los
+estilos que aplican son los siguientes:
+
+``` css
 p {
       color: blue;
       text-align: left;
@@ -76,9 +111,11 @@ p {
     }
 ```
 
-En este caso, tendremos un texto de color blanco, con fondo negro y alineado a la izquierda. Quedando los estilos que realmente aplican así:
+En este caso, tendremos un texto de color blanco, con fondo negro
+y alineado a la izquierda. Quedando los estilos que realmente
+aplican así:
 
-```css
+``` css
     .inverso {
       color: white;
       background-color: black;
@@ -90,7 +127,7 @@ En este caso, tendremos un texto de color blanco, con fondo negro y alineado a l
 
 Tenemos el siguiente código:
 
-```html
+``` html
 <!DOCTYPE html>
 <html lang="es-ES">
 
@@ -144,42 +181,51 @@ Tenemos el siguiente código:
 </body>
 
 </html>
-
 ```
 
-Tenemos un código con dos elementos _div_ que dentro de ellos tienen otros elementos _div_, como descendientes.
+Tenemos un código con dos elementos *div* que dentro de ellos
+tienen otros elementos *div*, como descendientes.
 
 Con los estilos, podemos predecir cual será el resultado:
 
-```css
+``` css
 .españa .toledo {
       color: red;
     }
 ```
-Afecta a las clases _toledo_ que sean descendientes de la clase _españa_. Esto aplicará al elemento que mostrará `3. La ciudad de Toledo`, que se mostrará en color rojo.
+
+Afecta a las clases *toledo* que sean descendientes de la clase
+*españa*. Esto aplicará al elemento que mostrará
+`3. La ciudad de Toledo`, que se mostrará en color rojo.
 
 La siguiente regla:
-```css
+
+``` css
 .toledo {
       color: blue;
     }
 ```
 
-Hace que todas las clases _toledo_ se vean de color azul. Esto no afecta a nuestra clase anterior, pues como la anterior es más restrictiva o específica aplica esa regla.
+Hace que todas las clases *toledo* se vean de color azul. Esto no
+afecta a nuestra clase anterior, pues como la anterior es más
+restrictiva o específica aplica esa regla.
 
-Sin embargo, esto si afectará a la clase _toledo_ dentro de la clase _país estados-unidos_ con el texto `8. La ciudad de Toledo`. La cual se mostrará de color azul.
+Sin embargo, esto si afectará a la clase *toledo* dentro de la
+clase *país estados-unidos* con el texto
+`8. La ciudad de Toledo`. La cual se mostrará de color azul.
 
 La siguiente regla:
 
-```css
+``` css
     .toledo, .cuenca {
       text-align: center;
     }
 ```
 
-Esta regla afecta todas las clases que sean _toledo_ o _cuenca_. 
+Esta regla afecta todas las clases que sean *toledo* o *cuenca*.
 
-Estas clases estarán alineadas en el centro. ESto afecta a los textos:
+Estas clases estarán alineadas en el centro. ESto afecta a los
+textos:
 
 - `3. La ciudad de Toledo`
 
@@ -189,12 +235,14 @@ Estas clases estarán alineadas en el centro. ESto afecta a los textos:
 
 Por último, la última regla:
 
-```css
+``` css
 .castilla-la-mancha {
       text-decoration: underline;
     }
 ```
-Todas las clases _castilla-la-manha_ y sus descendientes estarán subrayados. Por tanto, afecta a:
+
+Todas las clases *castilla-la-manha* y sus descendientes estarán
+subrayados. Por tanto, afecta a:
 
 - `2. La comunidad Castilla la Mancha`
 
@@ -212,7 +260,7 @@ Con todas estas reglas, al final queda este resultado:
 
 Tenemos el siguiente código HTML:
 
-```html
+``` html
 <!DOCTYPE html>
 <html lang="es-ES">
 
@@ -251,52 +299,69 @@ Tenemos el siguiente código HTML:
 </body>
 
 </html>
-
 ```
 
-Vamos a ir repasando los estilos a ver dónde aplica cada uno. El primero de ellos:
+Vamos a ir repasando los estilos a ver dónde aplica cada uno. El
+primero de ellos:
 
-```css
+``` css
     #alfa {
       color: blue;
     }
 ```
 
-Aplica a todos los elementos cuyo identificador sea _alfa_. Como es un identificador, este debe ser único, por tanto, solo debe afectar a un solo elemento.
+Aplica a todos los elementos cuyo identificador sea *alfa*. Como
+es un identificador, este debe ser único, por tanto, solo debe
+afectar a un solo elemento.
 
-El parrafo con el identificador _alpha_, cuyo texto será azul, tiene de texto : _Párrafo 2, llamado alfa. Está dentro de un elemento div, pero no es un elemento div_.
+El parrafo con el identificador *alpha*, cuyo texto será azul,
+tiene de texto : *Párrafo 2, llamado alfa. Está dentro de un
+elemento div, pero no es un elemento div*.
 
 La siguiente regla de estilos:
 
-```css
+``` css
 p#alfa {
       font-size: 200%;
     }
 ```
 
-Esta regla afecta a todos los elementos parrafo que tengan como identificador _alfa_. Este estilo solo afecta al mismo elemento nombrado con anterioridad, cuyo texto _Párrafo 2, llamado alfa. Está dentro de un elemento div, pero no es un elemento div_ será un 200% más grande.
+Esta regla afecta a todos los elementos parrafo que tengan como
+identificador *alfa*. Este estilo solo afecta al mismo elemento
+nombrado con anterioridad, cuyo texto *Párrafo 2, llamado alfa.
+Está dentro de un elemento div, pero no es un elemento div* será
+un 200% más grande.
 
 El siguiente estilo:
 
-```css
+``` css
 div#alfa{
       background-color: yellow;
     }
 ```
 
-Esto afectará a los elementos _div_ que tengan como identificador _alfa_. No afecta a ningún elemento en nuestro código. Pese a sí tener un elemento div y un elemento con un identificador _alfa_ no le afecta, pues el elemento identificado como _alfa_ no es un _div_ sino un párrafo.
+Esto afectará a los elementos *div* que tengan como identificador
+*alfa*. No afecta a ningún elemento en nuestro código. Pese a sí
+tener un elemento div y un elemento con un identificador *alfa*
+no le afecta, pues el elemento identificado como *alfa* no es un
+*div* sino un párrafo.
 
 El último estilo:
 
-```css
+``` css
 div #alfa{
       font-style: italic;
     }
 ```
 
-Afectará a todas los elementos _div_ o a todos los elementos con identificador _alfa_. Esta regla sí aplica al elemento identificado como _alfa_. Pues esta regla genera la posibilidad de que siendo _div_ **O** siendo _alfa_ aplique esta regla.
+Afectará a todas los elementos *div* o a todos los elementos con
+identificador *alfa*. Esta regla sí aplica al elemento
+identificado como *alfa*. Pues esta regla genera la posibilidad
+de que siendo *div* **O** siendo *alfa* aplique esta regla.
 
-Por tanto, el texto _Párrafo 2, llamado alfa. Está dentro de un elemento div, pero no es un elemento div_ estará en letra italica o cursiva.
+Por tanto, el texto *Párrafo 2, llamado alfa. Está dentro de un
+elemento div, pero no es un elemento div* estará en letra italica
+o cursiva.
 
 La página queda de la siguiente manera:
 
@@ -306,7 +371,7 @@ La página queda de la siguiente manera:
 
 Tenemos este código:
 
-```html
+``` html
 <!DOCTYPE html>
 <html lang="es-ES">
 
@@ -338,59 +403,68 @@ Tenemos este código:
 </body>
 
 </html>
-
 ```
 
 Analizaremos uno a uno todos los estilos para ver como aplican.
 
-Antes de esto, hay que recordar que a la hora de definir clases en html, si separamos por espacio, estamos definiendo varios valores de clase para un mismo elemento. Por ejemplo, en este elemento:
+Antes de esto, hay que recordar que a la hora de definir clases
+en html, si separamos por espacio, estamos definiendo varios
+valores de clase para un mismo elemento. Por ejemplo, en este
+elemento:
 
-```html
+``` html
 <p class="reglamento urjc">Párrafo 2, clases reglamento y urjc.</p>
 ```
 
-Este elemento pertenece a la clase _reglamento_ y a la clase _urjc_.
+Este elemento pertenece a la clase *reglamento* y a la clase
+*urjc*.
 
 Con esto claro, vamos con el primer estilo.
 
-```css
+``` css
 .urjc {
       color: #CB0017;
     }
 ```
 
-Todas las clases urjc tendrán este color. ESto afecta a los parrafos con los siguientes textos:
-- _Párrafo 2, clases reglamento y urjc._
+Todas las clases urjc tendrán este color. ESto afecta a los
+parrafos con los siguientes textos:
 
-- _Párrafo 4, clases investigacion y urjc._
+- *Párrafo 2, clases reglamento y urjc.*
+
+- *Párrafo 4, clases investigacion y urjc.*
 
 El siguiente estilo:
 
-```css
+``` css
 .urjc.reglamento {
       text-decoration: underline;
     }
 ```
 
-Afectará a todos los elementos que sean de clase _urjc_ y clase _reglamento_. Su texto estará subrayado, y solo aplica al siguiente elemento: _Párrafo 2, clases reglamento y urjc._.
+Afectará a todos los elementos que sean de clase *urjc* y clase
+*reglamento*. Su texto estará subrayado, y solo aplica al
+siguiente elemento: *Párrafo 2, clases reglamento y urjc.*.
 
 El último estilo:
 
-```css
+``` css
 .urjc, .reglamento {
       background-color: lightblue;
     }
 ```
 
-Esta regla afectará a todos los elementos que pertenezcan a la clase _urjc_ **O** a la clase _reglamento_, cuyo fondo será de azul claro.
+Esta regla afectará a todos los elementos que pertenezcan a la
+clase *urjc* **O** a la clase *reglamento*, cuyo fondo será de
+azul claro.
 
 Los elementos afectados son los que tienen el siguiente texto:
 
-- _Párrafo 2, clases reglamento y urjc._
+- *Párrafo 2, clases reglamento y urjc.*
 
-- _Párrafo 2, clases reglamento y ucm._
+- *Párrafo 2, clases reglamento y ucm.*
 
-- _Párrafo 4, clases investigacion y urjc._
+- *Párrafo 4, clases investigacion y urjc.*
 
 Con estas reglas, el resultado queda así:
 
