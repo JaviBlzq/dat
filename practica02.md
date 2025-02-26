@@ -493,3 +493,7 @@ un estilo a una clase dentro de otra clase, pero no a otro
 elemento que pertenece a ambas clases. La regla solo aplica a las
 clases *uno* dentro de la clase *titulo* y no a las clases
 *titulo* ni *uno* ni a los elementos que las compartan.
+
+Para el cuarto ejemplo, el estilo solo aplica a las clases hijas de cualquier elemento que sean hijas de un elemento de clase _padre_. Vemos como este elemento intermedio es el que hace que no aplique al otro ejemplo, pues este elemento no es hijo de otro elemento descendiente de una clase _padre_.
+
+Para el último ejemplo, el estilo solo aplica a aquellos elementos ul que sean hijos de la clase _listado_. En este caso, no aplica al _Elemento 3_, por que no es un elemento ul, como sí lo son _Elemento 1_ y _Elemento 2_.

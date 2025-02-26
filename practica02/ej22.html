@@ -14,6 +14,13 @@
         .titulo .uno {
             background-color: cadetblue;
         }
+        .padre * .nieto{
+            color: red;
+        }
+
+        .listado ul {
+            background-color: lightcoral;
+        }
     </style>
 </head>
 <body>
@@ -31,6 +38,27 @@
 
     </div>
     <h1 class="titulo uno">Titulo</h1>
+
+    <div class="padre">
+        <div class="hijo">
+            <p class="nieto">¿Soy nieto?</p>
+        </div>
+    </div>
+
+    <div class="padre"></div>
+        <p class="nieto">¿Soy nieto?</p>
+    </div>
+
+    <div class="listado">
+        <ul>
+            <li>Elemento 1</li>
+            <li>Elemento 2</li>
+        </ul>
+    </div>
+    <div class="listado">
+        <p>Elemento 3</p>
+    </div>
+
 </body>
 
 </html>
