@@ -13,6 +13,10 @@ function changeValue(a){
     return a;
 }
 
+function defaultValue(a = "Hola"){
+    console.log(a);
+}
+
 let x = 1;
 
 console.log("Demostración 1 paso por valor")
@@ -32,3 +36,11 @@ console.log("Demostración 3 paso por valor")
 console.log("z vale: " + z);
 console.log("Con la función changeValue() cambiamos el valor y, z vale: " + changeValue(z));
 console.log("En el ámbito global, z sigue valiendo: " + z);
+
+let a = "Adios"
+console.log("Demostración 1 valor por defecto")
+console.log("a vale: " + a);
+console.log("Con la función defaultVlue() imprimmimos el valor a, a vale: ");
+defaultValue(a)
+console.log("Si no pasamos ningun valor a ChangeValue, imprime:" );
+defaultValue()
