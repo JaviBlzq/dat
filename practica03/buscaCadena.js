@@ -9,18 +9,13 @@ function buscaCadena(strToFind, strBase){
     if (typeof(strBase) !== 'string'){
         throw new Error("El elemento donde buscaremos la cadena debe ser una string");
     }
-
-    let strLen = strToFind.length
-
-    for (let i = 0; i < strBase.length; i += strLen) {
-        arr.push(strBase.slice(i, i + strLen));
-    }
     
-    arr.forEach(element => {
-        if (element === strToFind) {
-          count++;
+    for (let char of strBase) {
+        if (strToFind.includes(char)) {
+            count++;
         }
-      });
+    }
+        
     
 
     return count
