@@ -16,7 +16,6 @@ function addTable(lista){
     let table = document.createElement("table")
     table.classList.add("table", "table-bordered", "text-center")
 
-    // Fila para la categoría
     let headerRow = document.createElement("tr")
     let headerCell = document.createElement("th")
 
@@ -25,7 +24,6 @@ function addTable(lista){
     headerRow.appendChild(headerCell)
     table.appendChild(headerRow)
 
-    // Una fila por cada ítem
     for (let i = 1; i < lista.length; i++) {
         let trow = document.createElement("tr")
         let td = document.createElement("td")
