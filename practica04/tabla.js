@@ -16,9 +16,9 @@ function addInTable(){
         let row = document.createElement("tr")
         let td = document.createElement("td")
 
-        td.append(lista[i])
-        row.append(td)
-        tabla.append(row)
+        td.textContent  = lista[i]
+        row.appendChild(td)
+        tabla.appendChild(row)
     }
 }
 
