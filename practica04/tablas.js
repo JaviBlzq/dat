@@ -34,6 +34,7 @@ function addTable(lista){
     
         span.classList.add("d-block", "text-decoration-none", "link-body-emphasis")
         span.style.cursor = "pointer"
+        span.dataset.categoria = lista[0]
     
         span.addEventListener("click", add_orders);
     
@@ -64,24 +65,26 @@ function checkList(lista){
             throw new Error("sublist muste be at least one category and one product")
         }
     }
-
-
 }
 
 
 
 function add_orders(event) {
     let col = document.querySelector("#col-right")
-    let table = document.querySelector("#orders")
+
+    let categoria = event.target.dataset.categoria
+    let tabla_id = "orders-" + categoria.replaceAll(" ", "-")
+    let table = document.querySelector("#" + tabla_id)
+
 
     if (!table) {
         table = document.createElement("table")
-        table.id = "orders"
+        table.id = tabla_id
         table.classList.add("table", "table-bordered", "text-center")
 
         let headerRow = document.createElement("tr")
         let headerCell = document.createElement("th")
-        headerCell.textContent = "Pedidos"
+        headerCell.textContent = "Pedidos " + categoria
         headerRow.appendChild(headerCell)
         table.appendChild(headerRow)
 
