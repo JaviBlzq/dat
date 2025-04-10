@@ -26,6 +26,7 @@ function duplicados(lista){
         }
     }
     console.log(sinDuplicados)
+    return sinDuplicados
 }
 
 duplicados(lista)
