@@ -7,11 +7,12 @@ let lista_menu = [
     ["Comida caliente", "Tortilla", "Tostadas", "Plato de sopa"]
 ]
 
-function addTable(lista){
-    let row = document.querySelector("#row")
 
-    let col = document.createElement("div")
-    col.classList.add("col-sm-12", "mb-4")
+
+function addTable(lista){
+    
+
+    let col = document.querySelector("#col-left")
 
     let table = document.createElement("table")
     table.classList.add("table", "table-bordered", "text-center")
@@ -27,13 +28,22 @@ function addTable(lista){
     for (let i = 1; i < lista.length; i++) {
         let trow = document.createElement("tr")
         let td = document.createElement("td")
-        td.textContent = lista[i]
+    
+        let span = document.createElement("span")
+        span.textContent = lista[i]
+    
+        span.classList.add("d-block", "text-decoration-none", "link-body-emphasis")
+        span.style.cursor = "pointer"
+    
+        span.addEventListener("click", add_orders);
+    
+        td.appendChild(span)
         trow.appendChild(td)
         table.appendChild(trow)
     }
+    
 
     col.appendChild(table)
-    row.appendChild(col)
 }
 
 function checkList(lista){
@@ -57,4 +67,33 @@ function checkList(lista){
 
 
 }
+
+
+
+function add_orders(event) {
+    let col = document.querySelector("#col-right")
+    let table = document.querySelector("#orders")
+
+    if (!table) {
+        table = document.createElement("table")
+        table.id = "orders"
+        table.classList.add("table", "table-bordered", "text-center")
+
+        let headerRow = document.createElement("tr")
+        let headerCell = document.createElement("th")
+        headerCell.textContent = "Pedidos"
+        headerRow.appendChild(headerCell)
+        table.appendChild(headerRow)
+
+        col.appendChild(table) 
+    }
+
+    let trow = document.createElement("tr")
+    let td = document.createElement("td")
+    td.textContent = event.target.textContent
+    trow.appendChild(td)
+    table.appendChild(trow)
+
+}
+
 checkList(lista_menu)
