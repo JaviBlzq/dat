@@ -4,6 +4,9 @@ let lista = ['tortilla', 'te', 'cafe', 'te', 'tostada','tostada', 'tostada']
 
 
 function duplicados(lista){
+    if (lista.length < 1){
+        throw new Error("list must be greater than 0")
+    }
     let sinDuplicados = [];
 
     for (let product of lista){
