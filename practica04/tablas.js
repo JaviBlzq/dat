@@ -133,11 +133,11 @@ function add_orders(event) {
     let tabla_id = "orders-" + categoria.replaceAll(" ", "-")
     let table = document.querySelector("#" + tabla_id)
 
-    // Lista general de pedidos acumulados
+    
     orders.push(producto)
-    let ordersNoDup = duplicados(orders) // Devuelve [[n, "producto"]]
+    let ordersNoDup = duplicados(orders) 
 
-    // Si no existe la tabla de pedidos de esa categoría, la creamos
+    
     if (!table) {
         table = document.createElement("table")
         table.id = tabla_id
@@ -170,25 +170,30 @@ function add_orders(event) {
         }
     }
 
-    // Si no se encontró, se añade nueva fila
     if (!encontrado) {
-        let trow = document.createElement("tr")
-        let td = document.createElement("td")
+        let trow = document.createElement("tr");
+        let td = document.createElement("td");
 
-        let spanUnits = document.createElement("span")
-        let spanName = document.createElement("span")
+        let spanContainer = document.createElement("div");
+        spanContainer.classList.add("d-flex",  "align-items-center", "gap-2");
 
-        spanUnits.textContent = countUnits(ordersNoDup, producto) + "x "
-        spanUnits.classList.add("producto-unidades", "fw-bold", "d-block", "text-decoration-none", "link-body-emphasis")
+        let spanUnits = document.createElement("span");
+        let spanName = document.createElement("span");
 
-        spanName.textContent = producto
-        spanName.classList.add("producto-nombre","d-block", "text-decoration-none", "link-body-emphasis")
+        spanUnits.textContent = countUnits(ordersNoDup, producto) + "x ";
+        spanUnits.classList.add("producto-unidades", "fw-bold", "text-decoration-none", "link-body-emphasis");
 
-        td.appendChild(spanUnits)
-        td.appendChild(spanName)
+        spanName.textContent = producto;
+        spanName.classList.add("producto-nombre", "text-decoration-none", "link-body-emphasis", "text-start");
 
-        trow.appendChild(td)
-        table.appendChild(trow)
+        spanContainer.appendChild(spanUnits);
+        spanContainer.appendChild(spanName);
+
+        td.appendChild(spanContainer);
+
+        trow.appendChild(td);
+        table.appendChild(trow);
+
     }
 }
 
