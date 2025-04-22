@@ -9,8 +9,8 @@ let lista_menu = [
     ["Comida caliente", "Tortilla", "Tostadas", "Sopa"]
 ]
 let menu_diff = {
-    bebidas: ["Café frío", "Zumo", "Refresco", "Botella de agua", "Café caliente", "Infusiones", "Chocolate caliente"],
-    comida: ["Sándwich", "Ensalada", "Snacks", "Tortilla", "Tostadas", "Plato de sopa"]
+    bebidas: ["Cafe frio", "Zumo", "Refresco", "Botella de agua", "Cafe caliente", "Infusiones", "Chocolate caliente"],
+    comidas: ["Sandwich", "Ensalada", "Snacks", "Tortilla", "Tostadas", "Sopa"]
 }
 
 let orders = [];
@@ -50,7 +50,7 @@ function addTable(lista){
 
         for (let meal in menu_diff){
             if (menu_diff[meal].includes(lista[i])){
-                span.classList.add(meal)
+                table.classList.add(meal)
             }
         }
         
@@ -58,6 +58,7 @@ function addTable(lista){
         img.style.pointerEvents = "none"
         div.style.cursor = "pointer"
         div.dataset.categoria = lista[0]
+        
         
         
         div.addEventListener("click", add_orders);
@@ -221,5 +222,80 @@ function add_orders(event) {
     }
 }
 
+function hideLunch(){
+    let lunch = document.querySelectorAll(".comidas")
+    lunch.forEach(element => {
+        element.style.display = "none"
+    });
+}
 
+function hideDrinks(){
+    let drinks = document.querySelectorAll(".bebidas")
+    drinks.forEach(element => {
+        element.style.display= "none"
+    });
+}
+
+function showLunch(event){
+    let lunch = document.querySelectorAll(".comidas")
+    lunch.forEach(element => {
+        element.style.removeProperty("display");
+
+    });
+}
+
+function showDrink(event){
+    let drinks = document.querySelectorAll(".bebidas")
+    drinks.forEach(element => {
+        element.style.removeProperty("display");
+
+    });
+}
+
+function toggleMeals(event) {
+    
+    if (event.target.textContent === "Ver Bebidas") {
+        hideLunch()
+        event.target.textContent = "Mostrar todo"
+    } else if (event.target.textContent === "Ver Comidas") {
+        hideDrinks()
+        event.target.textContent = "Mostrar todo"
+    } else {
+        if (event.target.classList.contains("drink")) {
+            showLunch()
+            event.target.textContent = "Ver Bebidas"
+        } else {
+            showDrink()
+            event.target.textContent = "Ver Comidas"
+        }
+    }
+
+
+}
+
+
+function addButtons(lista){
+    let col = document.querySelector("#col-left")
+    let div = document.createElement("div")
+    div.classList.add("d-flex", "align-items-center", "gap-4")
+    let buttonSwitch = document.createElement("button")
+
+    buttonSwitch.classList.add("drink","btn", "btn-primary", "mb-4")
+    buttonSwitch.textContent = "Ver Bebidas"
+
+    let buttonSwitch2 = document.createElement("button")
+
+    buttonSwitch2.classList.add("lunch","btn", "btn-primary", "mb-4")
+    buttonSwitch2.textContent = "Ver Comidas"
+    buttonSwitch.addEventListener("click", toggleMeals)
+    buttonSwitch2.addEventListener("click", toggleMeals)
+
+    
+    div.appendChild(buttonSwitch)
+    div.appendChild(buttonSwitch2)
+
+    col.appendChild(div)
+    
+}
+addButtons(menu_diff)
 checkList(lista_menu)
