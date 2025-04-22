@@ -1,11 +1,17 @@
 'use strict'
 
+
+
 let lista_menu = [
-    ["Bebidas frías", "Café frío", "Zumo", "Refresco", "Botella de agua"],
-    ["Bebidas calientes", "Café caliente", "Infusiones", "Chocolate caliente"],
-    ["Comida fría", "Sándwich", "Ensalada", "Snacks"],
-    ["Comida caliente", "Tortilla", "Tostadas", "Plato de sopa"]
+    ["Bebidas frias", "Cafe frio", "Zumo", "Refresco", "Botella de agua"],
+    ["Bebidas calientes", "Cafe caliente", "Infusiones", "Chocolate caliente"],
+    ["Comida fria", "Sandwich", "Ensalada", "Snacks"],
+    ["Comida caliente", "Tortilla", "Tostadas", "Sopa"]
 ]
+let menu_diff = {
+    bebidas: ["Café frío", "Zumo", "Refresco", "Botella de agua", "Café caliente", "Infusiones", "Chocolate caliente"],
+    comida: ["Sándwich", "Ensalada", "Snacks", "Tortilla", "Tostadas", "Plato de sopa"]
+}
 
 let orders = [];
 
@@ -20,26 +26,44 @@ function addTable(lista){
 
     let headerRow = document.createElement("tr")
     let headerCell = document.createElement("th")
+    let divHeader = document.createElement("div")
+    let header = document.createElement("span")
+    let imgHeader = document.createElement("img")
+    imgHeader.src = "./images/resized/" + lista[0] + ".png"
+    header.textContent = lista[0]
 
-    headerCell.textContent = lista[0]
 
+    divHeader.appendChild(imgHeader)
+    divHeader.appendChild(header)
+    headerCell.appendChild(divHeader)
     headerRow.appendChild(headerCell)
     table.appendChild(headerRow)
 
     for (let i = 1; i < lista.length; i++) {
         let trow = document.createElement("tr")
         let td = document.createElement("td")
-    
+        let div = document.createElement("div")
         let span = document.createElement("span")
+        let img = document.createElement("img")
+        img.src = "./images/resized/" + lista[i] + ".png"
         span.textContent = lista[i]
-    
-        span.classList.add("d-block", "text-decoration-none", "link-body-emphasis")
-        span.style.cursor = "pointer"
-        span.dataset.categoria = lista[0]
-    
-        span.addEventListener("click", add_orders);
-    
-        td.appendChild(span)
+
+        for (let meal in menu_diff){
+            if (menu_diff[meal].includes(lista[i])){
+                span.classList.add(meal)
+            }
+        }
+        
+        span.style.pointerEvents = "none"
+        img.style.pointerEvents = "none"
+        div.style.cursor = "pointer"
+        div.dataset.categoria = lista[0]
+        
+        
+        div.addEventListener("click", add_orders);
+        div.appendChild(img)
+        div.appendChild(span)
+        td.appendChild(div)
         trow.appendChild(td)
         table.appendChild(trow)
     }
@@ -127,7 +151,7 @@ function countUnits(arr1, elem){
 
 function add_orders(event) {
     let col = document.querySelector("#col-right")
-
+    console.log(event.target)
     let categoria = event.target.dataset.categoria
     let producto = event.target.textContent
     let tabla_id = "orders-" + categoria.replaceAll(" ", "-")
