@@ -158,7 +158,8 @@ function removeOne(event){
 
     if (units > 1){
         div.querySelector(".producto-unidades").textContent =  (units - 1) + "x"
-        
+        let indice = orders.indexOf(3); // obtenemos el indice
+        orders.splice(indice, 1);
     } else {
         div.remove()
     }
