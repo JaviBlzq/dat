@@ -57,7 +57,7 @@ function addTable(lista){
         span.style.pointerEvents = "none"
         img.style.pointerEvents = "none"
         div.style.cursor = "pointer"
-        div.dataset.categoria = lista[0]
+        div.setAttribute("data-categoria", lista[0]);
         
         
         
@@ -150,9 +150,23 @@ function countUnits(arr1, elem){
     return 1;
 }
 
+function removeOne(event){
+    let spanProduct = event.target.dataset.producto.replaceAll(" ", "-")
+    let div= document.querySelector("#" + spanProduct)
+    
+    let units = div.querySelector(".producto-unidades").textContent.replaceAll("x", "")
+
+    if (units > 1){
+        div.querySelector(".producto-unidades").textContent =  (units - 1) + "x"
+        
+    } else {
+        div.remove()
+    }
+}
+
 function add_orders(event) {
     let col = document.querySelector("#col-right")
-    console.log(event.target)
+    
     let categoria = event.target.dataset.categoria
     let producto = event.target.textContent
     let tabla_id = "orders-" + categoria.replaceAll(" ", "-")
@@ -200,17 +214,25 @@ function add_orders(event) {
         let td = document.createElement("td");
 
         let spanContainer = document.createElement("div");
-        spanContainer.classList.add("d-flex",  "align-items-center", "gap-2");
-
+        
         let spanUnits = document.createElement("span");
         let spanName = document.createElement("span");
-
+        let remove = document.createElement("button");
+        remove.textContent = "Borrar";
+        remove.classList.add("btn", "btn-danger", "btn-sm", "remove-button");
+        remove.setAttribute("data-producto", producto);
+        remove.addEventListener("click", removeOne);
+        
         spanUnits.textContent = countUnits(ordersNoDup, producto) + "x ";
         spanUnits.classList.add("producto-unidades", "fw-bold", "text-decoration-none", "link-body-emphasis");
-
+        
         spanName.textContent = producto;
         spanName.classList.add("producto-nombre", "text-decoration-none", "link-body-emphasis", "text-start");
+        
+        spanContainer.classList.add("d-flex",  "align-items-center", "gap-2" );
+        spanContainer.id = producto.replaceAll(" ", "-")
 
+        spanContainer.appendChild(remove);
         spanContainer.appendChild(spanUnits);
         spanContainer.appendChild(spanName);
 
