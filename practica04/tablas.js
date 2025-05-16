@@ -132,8 +132,6 @@ function arrayOfArrays(arr){
 }
 
 function countUnits(arr1, elem){
-    let found = false;
-
     if (arguments.length !== 2) {
         throw new Error("La función debe recibir dos parámetros")
     }
@@ -157,16 +155,36 @@ function removeOne(event){
     let spanProduct = event.target.dataset.producto.replaceAll(" ", "-")
     let div= document.querySelector("#" + spanProduct)
     
-    let units = div.querySelector(".producto-unidades").textContent.replaceAll("x", "")
+    let unitsText = div.querySelector(".producto-unidades").textContent.replaceAll("x", "")
+    let units = parseInt(unitsText);
 
     if (units > 1){
         div.querySelector(".producto-unidades").textContent =  (units - 1) + "x"
-        let indice = orders.indexOf(3); // obtenemos el indice
-        orders.splice(indice, 1);
+        let indice = orders.indexOf(event.target.dataset.producto); 
+        if(indice !== -1){
+            orders.splice(indice, 1);
+        }
     } else {
-        div.remove()
+        
+        let tr = div.closest("tr");
+        if (tr) {
+            let table = tr.closest("table");
+            tr.remove();
+
+            // si la tabla no tiene más filas excepto el encabezado, eliminar tabla
+            if (table.querySelectorAll("tr").length === 1) {
+                table.remove();
+            }
+        }
+
+        
+        let idx = orders.indexOf(event.target.dataset.producto);
+        if (idx !== -1) {
+            orders.splice(idx, 1);
+        }
     }
 }
+
 
 function getRandomNumber(max){
     
@@ -186,7 +204,7 @@ function getDivBySpanText(texto) {
     return null; 
   }
 
-function add_agotado(event){
+function add_agotado(){
     let valid = false;
     let productoAleatorio;
     while (!valid){
@@ -208,7 +226,7 @@ function add_agotado(event){
         let img = div.querySelector("img");
         if (img) {
             img.src = "./images/resized/agotado.png";
-          }
+        }
     }
     div.removeEventListener("click", add_orders);
     alert("El producto " + productoAleatorio + " está agotado.")
