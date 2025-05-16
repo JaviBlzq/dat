@@ -15,6 +15,9 @@ let menu_diff = {
 
 let orders = [];
 
+let simula_agotados = 3;
+let agotados = [];
+
 
 function addTable(lista){
     
@@ -165,11 +168,69 @@ function removeOne(event){
     }
 }
 
+function getRandomNumber(max){
+    
+    return Math.floor(Math.random() * max);
+}
+
+function getDivBySpanText(texto) {
+    let divs = document.querySelectorAll("table tr td div");
+  
+    for (let div of divs) {
+      let span = div.querySelector("span");
+      if (span && span.textContent === texto) {
+        return div;
+      }
+    }
+  
+    return null; 
+  }
+
+function add_agotado(event){
+    let valid = false;
+    let productoAleatorio;
+    while (!valid){
+        let categorias = Object.keys(menu_diff);
+        let categoriaAleatoria = categorias[Math.floor(Math.random() * categorias.length)];
+    
+        let productos = menu_diff[categoriaAleatoria];
+        productoAleatorio = productos[Math.floor(Math.random() * productos.length)];
+    
+        if (!agotados.includes(productoAleatorio)){
+            agotados.push(productoAleatorio)
+            valid = true
+            
+        }
+    }
+    let div = getDivBySpanText(productoAleatorio);
+
+    if (div) {
+        let img = div.querySelector("img");
+        if (img) {
+            img.src = "./images/resized/agotado.png";
+          }
+    }
+    div.removeEventListener("click", add_orders);
+    alert("El producto " + productoAleatorio + " está agotado.")
+}
+
 function add_orders(event) {
+    let rnd = getRandomNumber(simula_agotados);
+    
+    if (rnd === 1 ){
+        add_agotado(event)
+    }
+
+    
     let col = document.querySelector("#col-right")
     
     let categoria = event.target.dataset.categoria
     let producto = event.target.textContent
+
+    if (agotados.includes(producto)){
+        return ;
+    }
+    
     let tabla_id = "orders-" + categoria.replaceAll(" ", "-")
     let table = document.querySelector("#" + tabla_id)
 
@@ -320,5 +381,17 @@ function addButtons(lista){
     col.appendChild(div)
     
 }
+
+function check_agotados(){
+    if (!Number.isInteger(simula_agotados)){
+        throw new Error("simula_agotados must be an integer")
+    }
+    if (simula_agotados < 0){
+        throw new Error("simula_agotados must be a positive number")
+    }
+    return ;
+}
+
+check_agotados();
 addButtons(menu_diff)
 checkList(lista_menu)
