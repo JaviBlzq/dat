@@ -1,12 +1,12 @@
 'use strict';
-import * as modulo from '../practica03/valida.js';
+import {valida} from '../practica03/valida.js';
 
 function valida_passwd(event) {
     event.preventDefault(); // Evita recarga
 
     let passwd = document.querySelector("#inputPassword4").value;
     
-    let resultado = modulo.valida(passwd, 8, 1, 1, 1, 1, ',.-{}[]!"·$%&/()=?¿¡');
+    let resultado = valida(passwd, 8, 1, 1, 1, 1, ',.-{}[]!"·$%&/()=?¿¡');
     
     let display = document.querySelector("#validacion");
 

@@ -55,7 +55,6 @@ export function valida(passwd, longMin, minusMin, mayusMin, digMin, espMin, espe
     validateLen(espMin,true);
     validateString(especial);
 
-    console.log("contraseña: " + passwd)
 
     if (passwd.length < longMin) {
         errors.push("Error: La longitud de la cadena no es correcta. Debe ser como minimo de " + longMin + " caracteres");
