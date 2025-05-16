@@ -41,7 +41,7 @@ function buscaCadena(strToFind, strBase){
     return count;
 }
 
-function valida(passwd, longMin, minusMin, mayusMin, digMin, espMin, especial){
+export function valida(passwd, longMin, minusMin, mayusMin, digMin, espMin, especial){
     let letters = "abcdefghijklmnñopqrstuvxyz";
     let mayusLetters = letters.toUpperCase();
     let digits = "0123456789"
