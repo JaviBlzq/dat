@@ -20,14 +20,26 @@
         <div id="map"></div>
         <script>
             'use strict'
-            let latitud=40.28; //coordenada y
-            let longitud=-3.81; //coordenada x
-            let zoom=19;
-            let map = L.map('map').setView([latitud, longitud], 13);
-            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                maxZoom: 19,
-                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-            }).addTo(map);
+            let coords;
+            let options = {
+                enableHighAccuracy: true,
+                timeout: 5000,
+                maximumAge: 0
+            };
+            function success(pos) {
+                coords = [pos.coords.latitude, pos.coords.longitude]
+                let map = L.map('map').setView(coords, 13);
+                L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 19,
+                    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                }).addTo(map);
+            }
+            function error(err) {
+                console.warn(`ERROR(${err.code}): ${err.message}`);
+            };
+
+            navigator.geolocation.getCurrentPosition(success, error, options)
+            
         </script>
     </body>
 </html>
