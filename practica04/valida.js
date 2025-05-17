@@ -2,7 +2,7 @@
 import {valida} from '../practica03/valida.js';
 
 function valida_passwd(event) {
-    event.preventDefault(); // Evita recarga
+    event.preventDefault(); 
 
     let passwd = document.querySelector("#inputPassword4").value;
     
@@ -10,7 +10,7 @@ function valida_passwd(event) {
     
     let display = document.querySelector("#validacion");
 
-    display.innerHTML = "";
+    display.textContent = "";
 
     if (resultado === "ok") {
         display.textContent = "Contraseña válida.";

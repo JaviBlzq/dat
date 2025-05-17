@@ -5,42 +5,42 @@ let lista_menu = [
     ["Bebidas calientes", "Café caliente", "Infusiones", "Chocolate caliente"],
     ["Comida fría", "Sándwich", "Ensalada", "Snacks"],
     ["Comida caliente", "Tortilla", "Tostadas", "Plato de sopa"]
-]
+];
 
 
 
 function addTable(lista){
     
 
-    let col = document.querySelector("#col-left")
+    let col = document.querySelector("#col-left");
 
-    let table = document.createElement("table")
-    table.classList.add("table", "table-bordered", "text-center")
+    let table = document.createElement("table");
+    table.classList.add("table", "table-bordered", "text-center");
 
-    let headerRow = document.createElement("tr")
-    let headerCell = document.createElement("th")
+    let headerRow = document.createElement("tr");
+    let headerCell = document.createElement("th");
 
-    headerCell.textContent = lista[0]
+    headerCell.textContent = lista[0];
 
-    headerRow.appendChild(headerCell)
-    table.appendChild(headerRow)
+    headerRow.appendChild(headerCell);
+    table.appendChild(headerRow);
 
     for (let i = 1; i < lista.length; i++) {
-        let trow = document.createElement("tr")
-        let td = document.createElement("td")
+        let trow = document.createElement("tr");
+        let td = document.createElement("td");
     
-        let span = document.createElement("span")
-        span.textContent = lista[i]
+        let span = document.createElement("span");
+        span.textContent = lista[i];
     
-        span.classList.add("d-block", "text-decoration-none", "link-body-emphasis")
-        span.style.cursor = "pointer"
-        span.dataset.categoria = lista[0]
+        span.classList.add("d-block", "text-decoration-none", "link-body-emphasis");
+        span.style.cursor = "pointer";
+        span.dataset.categoria = lista[0];
     
         span.addEventListener("click", add_orders);
     
-        td.appendChild(span)
-        trow.appendChild(td)
-        table.appendChild(trow)
+        td.appendChild(span);
+        trow.appendChild(td);
+        table.appendChild(trow);
     }
     
 
@@ -49,20 +49,20 @@ function addTable(lista){
 
 function checkList(lista){
     if(!Array.isArray(lista)){
-        throw new Error("not a list")
+        throw new Error("not a list");
     }
     if (lista.length < 1){
-        throw new Error("list must be filled")
+        throw new Error("list must be filled");
     }
     for (let i = 0; i< lista.length; i++){
         if(!Array.isArray(lista[i])){
-            throw new Error("Is not a list of sublist. Index " + i + " is not a list" )
+            throw new Error("Is not a list of sublist. Index " + i + " is not a list" );
         }
         if (lista[i].length > 1){
 
-            addTable(lista[i])
+            addTable(lista[i]);
         } else {
-            throw new Error("sublist muste be at least one category and one product")
+            throw new Error("sublist muste be at least one category and one product");
         }
     }
 }
@@ -70,33 +70,33 @@ function checkList(lista){
 
 
 function add_orders(event) {
-    let col = document.querySelector("#col-right")
+    let col = document.querySelector("#col-right");
 
-    let categoria = event.target.dataset.categoria
-    let tabla_id = "orders-" + categoria.replaceAll(" ", "-")
-    let table = document.querySelector("#" + tabla_id)
+    let categoria = event.target.dataset.categoria;
+    let tabla_id = "orders-" + categoria.replaceAll(" ", "-");
+    let table = document.querySelector("#" + tabla_id);
 
 
     if (!table) {
-        table = document.createElement("table")
-        table.id = tabla_id
-        table.classList.add("table", "table-bordered", "text-center")
+        table = document.createElement("table");
+        table.id = tabla_id;
+        table.classList.add("table", "table-bordered", "text-center");
 
-        let headerRow = document.createElement("tr")
-        let headerCell = document.createElement("th")
-        headerCell.textContent = "Pedidos " + categoria
-        headerRow.appendChild(headerCell)
-        table.appendChild(headerRow)
+        let headerRow = document.createElement("tr");
+        let headerCell = document.createElement("th");
+        headerCell.textContent = "Pedidos " + categoria;
+        headerRow.appendChild(headerCell);
+        table.appendChild(headerRow);
 
-        col.appendChild(table) 
+        col.appendChild(table) ;
     }
 
-    let trow = document.createElement("tr")
-    let td = document.createElement("td")
-    td.textContent = event.target.textContent
-    trow.appendChild(td)
-    table.appendChild(trow)
+    let trow = document.createElement("tr");
+    let td = document.createElement("td");
+    td.textContent = event.target.textContent;
+    trow.appendChild(td);
+    table.appendChild(trow);
 
 }
 
-checkList(lista_menu)
+checkList(lista_menu);

@@ -52,7 +52,7 @@ function convierte(meters, units){
     }
 }
 
-console.log("Prueba 10 metros a metros:")
+console.log("Prueba 10 metros a metros:");
 let returned = convierte(10, "m");
 for (let i = 0; i < returned.length; i++){
     console.log(returned[i]);

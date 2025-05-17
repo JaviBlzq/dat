@@ -20,11 +20,11 @@ function quitaEspacios(str){
         }
     })
     .join('');
-    return newStr
+    return newStr;
 }
 
-console.log(quitaEspacios("Hola don Pepito"))
-console.log(quitaEspacios("Hola, don Pepito"))
-console.log(quitaEspacios("Adios, Don Jose"))
-console.log(quitaEspacios("AdiosDonJose"))
+console.log(quitaEspacios("Hola don Pepito"));
+console.log(quitaEspacios("Hola, don Pepito"));
+console.log(quitaEspacios("Adios, Don Jose"));
+console.log(quitaEspacios("AdiosDonJose"));
 

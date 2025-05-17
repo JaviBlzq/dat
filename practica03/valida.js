@@ -10,7 +10,7 @@ function validateLen(long, eqZero){
         }
     } else {
         if (long <= 0){
-            throw new Error("Longitud cero o menor. Debe ser mayor que cero")
+            throw new Error("Longitud cero o menor. Debe ser mayor que cero");
         }
     }
     return ;

@@ -1,8 +1,8 @@
 'use strict'
 
-let number = document.querySelector('#number').textContent
-let units = document.querySelector('#units').textContent
-let result = document.querySelector('#result')
+let number = document.querySelector('#number').textContent;
+let units = document.querySelector('#units').textContent;
+let result = document.querySelector('#result');
 
 function getNumber(str){
     let num = Number(str);
@@ -52,4 +52,4 @@ function convierte(meters, units){
     }
 }
 
-result.textContent = (convierte(number, units))
+result.textContent = (convierte(number, units));
