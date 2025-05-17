@@ -1,1 +1,2 @@
 - se han creado dos .mjs para poder usar los archivos como modulos, y aún así tener los archivos .js requeridos.
+- en la practica 5.2 - dondeEsta.html - se guarda en localStorage la ubicacion del coche, permitiendo que aunque se cierre la sesión y el navegador siga la ubicacion del coche. Si esta ubicacion existe una vez se inicia la pagina, el boton de olvidar funciona, sino no.

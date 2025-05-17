@@ -8,6 +8,7 @@ let options = {
 };
 let map;
 let circle;
+
 function success(pos) {
     coords = [pos.coords.latitude, pos.coords.longitude];
     map = L.map('map').setView(coords, 13);
@@ -16,6 +17,14 @@ function success(pos) {
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
     let marker = L.marker(coords).addTo(map);
+    if (localStorage.getItem("latitude") !== 'undefined' && localStorage.getItem("longitude") !== 'undefined'){
+        circle = L.circle([localStorage.getItem("latitude"), localStorage.getItem("longitude")], {
+            color: 'red',
+            fillColor: '#f03',
+            fillOpacity: 0.5,
+            radius: 50
+        }).addTo(map);
+    }
 }
 function error(err) {
     console.warn(`ERROR(${err.code}): ${err.message}`);
@@ -58,8 +67,11 @@ function olvidarUbicacion(event){
 
 function checkButtons(){
     let btnRecordar = document.querySelector("#recordar");
-    
-
+    if (localStorage.getItem("latitude") !== 'undefined' && localStorage.getItem("longitude") !== 'undefined'){
+        
+        let btnOlvidar = document.querySelector("#olvidar");
+        btnOlvidar.addEventListener("click", olvidarUbicacion);
+    }
     btnRecordar.addEventListener("click", recordarUbicacion);
     
 }
