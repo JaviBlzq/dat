@@ -57,7 +57,7 @@ function generate_lists() {
 
     console.log("Fechas generadas:");
     for (let d of dates) {
-        console.log(diaDelAño(d));
+        console.log(diaDelAno(d));
     }
 
     console.log("Numero de fechas generadas: " + count);

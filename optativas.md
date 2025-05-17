@@ -1,1 +1,1 @@
-sin optativas
+- se han creado dos .mjs para poder usar los archivos como modulos, y aún así tener los archivos .js requeridos.
