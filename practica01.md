@@ -20,7 +20,12 @@ Aquí vemos el uso de _usted_. Se aprecia: "_presente sus sugerencias_"
 Aquí vemos el uso de _tú_. Se lee: "_tu contenido_, _tus trámites_".
 ![Uso de Tú en madrid.es](images/practica01/UsoTuMadrid.png)
 
+Lo vemos también en otro ejemplo, en la página del Ministerio de Defensa. Mientras que usan el usted para que te puedas poner en contacto con ellos, te tutean si quieres ser reservista.
 
+Aquí vemos el uso de _usted_:
+![Uso de Usted en Ministerio de Defensa](images/practica01/ustedMINISDEF.png)
+Aquí vemos el uso de _tú_:
+![Uso de Tú en Ministerio de Defensa](images/practica01/tuMINISDEF.png)
 # Práctica 1.3 - W3C Validator
 ## NASA
 Para esta primera página, analizaremos la página de la [NASA](https://www.nasa.gov/). La NASA, _National Aeronautics and Space Administration_, es la agencia espacial estadounidense, con un presupuesto en 2020 de mas de 20 mil millones de dólares.
